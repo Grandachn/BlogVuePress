@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Java枚举类 | granda&#39;s blog</title>
+    <meta name="description" content="笔记">
+    
+    
+    <link rel="preload" href="/assets/css/0.styles.01e0b4b8.css" as="style"><link rel="preload" href="/assets/js/app.460279ee.js" as="script"><link rel="preload" href="/assets/js/4.7f64594c.js" as="script"><link rel="prefetch" href="/assets/js/2.061b3904.js"><link rel="prefetch" href="/assets/js/3.e3640347.js"><link rel="prefetch" href="/assets/js/5.53dddd2b.js"><link rel="prefetch" href="/assets/js/6.1d901ace.js"><link rel="prefetch" href="/assets/js/7.61fe6d19.js"><link rel="prefetch" href="/assets/js/8.28b627c0.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.01e0b4b8.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">granda's blog</span></a> <div class="links" style="max-width:nullpx;"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">主页</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">编程语言</span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/java/" class="nav-link router-link-active">Java</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">开源框架</span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/Dubbo/" class="nav-link">Dubbo</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">算法题</span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/LeetCode/" class="nav-link">LeetCode</a></li></ul></div></div><div class="nav-item"><a href="/about/" class="nav-link">关于</a></div><div class="nav-item"><a href="https://www.github.com/grandachn" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Github
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <div class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">主页</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">编程语言</span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/java/" class="nav-link router-link-active">Java</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">开源框架</span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/Dubbo/" class="nav-link">Dubbo</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">算法题</span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/LeetCode/" class="nav-link">LeetCode</a></li></ul></div></div><div class="nav-item"><a href="/about/" class="nav-link">关于</a></div><div class="nav-item"><a href="https://www.github.com/grandachn" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Github
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <!----></nav>  <ul class="sidebar-links"><li><div class="sidebar-group first collapsable"><p class="sidebar-heading open"><span>java语言</span> <span class="arrow down"></span></p> <ul class="sidebar-group-items"><li><a href="/java/Java枚举类.html" class="active sidebar-link">Java枚举类</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/java/Java枚举类.html#枚举类的作用" class="sidebar-link">枚举类的作用</a></li><li class="sidebar-sub-header"><a href="/java/Java枚举类.html#枚举类的工程实践" class="sidebar-link">枚举类的工程实践</a></li><li class="sidebar-sub-header"><a href="/java/Java枚举类.html#枚举类字节码分析" class="sidebar-link">枚举类字节码分析</a></li><li class="sidebar-sub-header"><a href="/java/Java枚举类.html#values-方法和ordinal-方法" class="sidebar-link">values()方法和ordinal()方法</a></li><li class="sidebar-sub-header"><a href="/java/Java枚举类.html#枚举类特性" class="sidebar-link">枚举类特性</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/java/Java枚举类.html#_1-支持定义方法，同时支持方法的重写（override）" class="sidebar-link">1.支持定义方法，同时支持方法的重写（Override）</a></li><li class="sidebar-sub-header"><a href="/java/Java枚举类.html#_2-可实现接口，不可继承" class="sidebar-link">2.可实现接口，不可继承</a></li></ul></li><li class="sidebar-sub-header"><a href="/java/Java枚举类.html#name和ordinal" class="sidebar-link">name和ordinal</a></li><li class="sidebar-sub-header"><a href="/java/Java枚举类.html#enumset和enummap" class="sidebar-link">EnumSet和EnumMap</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/java/Java枚举类.html#_1-enumset替代位域" class="sidebar-link">1. EnumSet替代位域</a></li><li class="sidebar-sub-header"><a href="/java/Java枚举类.html#_2-enummap" class="sidebar-link">2. EnumMap</a></li></ul></li><li class="sidebar-sub-header"><a href="/java/Java枚举类.html#单例模式的最佳实现：枚举" class="sidebar-link">单例模式的最佳实现：枚举</a></li><li class="sidebar-sub-header"><a href="/java/Java枚举类.html#职责链模式的枚举实现" class="sidebar-link">职责链模式的枚举实现</a></li></ul></li></ul></div></li></ul> </div> <div class="page"> <div class="content"><h1 id="java枚举类"><a href="#java枚举类" aria-hidden="true" class="header-anchor">#</a> Java枚举类</h1> <p>关于Java枚举类的博文有很多，但是很多都是说怎么去用枚举，少有全面地把枚举类给将清楚的。本文将从枚举类的作用说起，到个人对枚举类的一些工程实践，然后从字节码去剖析枚举类的本质，介绍枚举类name和ordinal，EnumSet和EnumMap枚举集合类为何物，最后涉及枚举在单例模式和职责链模式中的应用。</p> <h2 id="枚举类的作用"><a href="#枚举类的作用" aria-hidden="true" class="header-anchor">#</a> 枚举类的作用</h2> <ol><li>代码硬编码的魔数，就是说用枚举代替int，可以避免使用数字做条件对比给硬编码到代码中，给后期维护带来隐患。</li> <li>枚举类可以保存更多字段，用于相应码之类的。java的后端编程中，controller层一般是要给前端返回一个响应码和对应的描述信息，如{code: 200, detail: &quot;执行成功&quot;}，这时就可以将这个响应体写成一个枚举类。</li> <li>数据库字段的前端展示的格式化可以借助枚举类实现。比如说，数据库存储用户的性别是0和1，数据传回前端的时候要转成男和女就可以借助枚举类，代码可参考后文的示例代码。</li></ol> <h2 id="枚举类的工程实践"><a href="#枚举类的工程实践" aria-hidden="true" class="header-anchor">#</a> 枚举类的工程实践</h2> <div class="language-java extra-class"><pre class="language-java"><code><span class="token keyword">public</span> <span class="token keyword">enum</span>  Gender <span class="token punctuation">{</span>
+    <span class="token function">MAN</span><span class="token punctuation">(</span><span class="token string">&quot;男&quot;</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">WOMENR</span><span class="token punctuation">(</span><span class="token string">&quot;女&quot;</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">final</span> Map<span class="token generics function"><span class="token punctuation">&lt;</span>Integer<span class="token punctuation">,</span>Gender<span class="token punctuation">&gt;</span></span> FROM_CODE_MAP <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">HashMap</span><span class="token operator">&lt;</span><span class="token operator">&gt;</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    
+    <span class="token keyword">private</span> String name<span class="token punctuation">;</span>
+    <span class="token keyword">private</span> Integer code<span class="token punctuation">;</span>
+
+    <span class="token keyword">static</span> <span class="token punctuation">{</span>
+         <span class="token comment">//jdk8</span>
+        Arrays<span class="token punctuation">.</span><span class="token function">stream</span><span class="token punctuation">(</span>Gender<span class="token punctuation">.</span><span class="token function">values</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span>e <span class="token operator">-</span><span class="token operator">&gt;</span> FROM_CODE_MAP<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span>e<span class="token punctuation">.</span>code<span class="token punctuation">,</span> e<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token comment">//上面一行代码对应的jdk7写法</span>
+<span class="token comment">//        for(Gender e : Gender.values()){</span>
+<span class="token comment">//            FROM_CODE_MAP.put(e.code, e);</span>
+<span class="token comment">//        }</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token function">Gender</span><span class="token punctuation">(</span>String name<span class="token punctuation">,</span> <span class="token keyword">int</span> code<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>name <span class="token operator">=</span> name<span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>code <span class="token operator">=</span> code<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">static</span> Gender <span class="token function">fromCode</span><span class="token punctuation">(</span>Integer code<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">return</span> fromCodeMap<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>code<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> String <span class="token function">getNameFromCode</span><span class="token punctuation">(</span>Integer code<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">return</span> fromCodeMap<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>code<span class="token punctuation">)</span><span class="token punctuation">.</span>name<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span>
+</code></pre></div><div class="language-java extra-class"><pre class="language-java"><code><span class="token comment">//@Data和@Builder使用lombok的注解，自动给类生成getter、setter方法和build</span>
+<span class="token annotation punctuation">@Data</span>
+<span class="token annotation punctuation">@Builder</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Result</span><span class="token generics function"><span class="token punctuation">&lt;</span>E<span class="token punctuation">&gt;</span></span> <span class="token keyword">implements</span> <span class="token class-name">Serializable</span> <span class="token punctuation">{</span>
+	<span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">final</span> <span class="token keyword">long</span> serialVersionUID <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">4578560278556203640</span>L<span class="token punctuation">;</span>
+	
+    <span class="token keyword">private</span> Integer code<span class="token punctuation">;</span>
+    <span class="token keyword">private</span> String msg<span class="token punctuation">;</span>
+    <span class="token keyword">private</span> E data<span class="token punctuation">;</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token generics function"><span class="token punctuation">&lt;</span>T<span class="token punctuation">&gt;</span></span> Result<span class="token generics function"><span class="token punctuation">&lt;</span>T<span class="token punctuation">&gt;</span></span> <span class="token function">success</span><span class="token punctuation">(</span>T data<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> Result<span class="token punctuation">.</span><span class="token generics function"><span class="token punctuation">&lt;</span>T<span class="token punctuation">&gt;</span></span><span class="token function">builder</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">code</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">msg</span><span class="token punctuation">(</span><span class="token string">&quot;OK&quot;</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">data</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">build</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token generics function"><span class="token punctuation">&lt;</span>T<span class="token punctuation">&gt;</span></span> Result<span class="token generics function"><span class="token punctuation">&lt;</span>T<span class="token punctuation">&gt;</span></span> <span class="token function">success</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> Result<span class="token punctuation">.</span><span class="token generics function"><span class="token punctuation">&lt;</span>T<span class="token punctuation">&gt;</span></span><span class="token function">builder</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">code</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">msg</span><span class="token punctuation">(</span><span class="token string">&quot;OK&quot;</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">data</span><span class="token punctuation">(</span>null<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">build</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token generics function"><span class="token punctuation">&lt;</span>T<span class="token punctuation">&gt;</span></span> Result<span class="token generics function"><span class="token punctuation">&lt;</span>T<span class="token punctuation">&gt;</span></span> <span class="token function">error</span><span class="token punctuation">(</span>ErrorResult errorResult<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> Result<span class="token punctuation">.</span><span class="token generics function"><span class="token punctuation">&lt;</span>T<span class="token punctuation">&gt;</span></span><span class="token function">builder</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">code</span><span class="token punctuation">(</span>errorResult<span class="token punctuation">.</span><span class="token function">getCode</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">msg</span><span class="token punctuation">(</span>errorResult<span class="token punctuation">.</span><span class="token function">getMessage</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">data</span><span class="token punctuation">(</span>null<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">build</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token generics function"><span class="token punctuation">&lt;</span>T<span class="token punctuation">&gt;</span></span> Result<span class="token generics function"><span class="token punctuation">&lt;</span>T<span class="token punctuation">&gt;</span></span> <span class="token function">error</span><span class="token punctuation">(</span><span class="token keyword">int</span> code<span class="token punctuation">,</span> String message<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> Result<span class="token punctuation">.</span><span class="token generics function"><span class="token punctuation">&lt;</span>T<span class="token punctuation">&gt;</span></span><span class="token function">builder</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">code</span><span class="token punctuation">(</span>code<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">msg</span><span class="token punctuation">(</span>message<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">data</span><span class="token punctuation">(</span>null<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">build</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">public</span> <span class="token keyword">enum</span>  ErrorResult <span class="token punctuation">{</span>
+    <span class="token comment">/**
+     * 错误类型
+     */</span>
+    <span class="token function">ILLEGAL_PARAMS</span><span class="token punctuation">(</span><span class="token number">400</span><span class="token punctuation">,</span> <span class="token string">&quot;illegal arguments&quot;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">INVALID_TOKEN</span><span class="token punctuation">(</span><span class="token number">401</span><span class="token punctuation">,</span> <span class="token string">&quot;invalid token&quot;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+
+    <span class="token keyword">private</span> <span class="token keyword">int</span> code<span class="token punctuation">;</span>
+    <span class="token keyword">private</span> String message<span class="token punctuation">;</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">getCode</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> code<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">public</span> String <span class="token function">getMessage</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> message<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token function">ErrorResult</span><span class="token punctuation">(</span><span class="token keyword">int</span> code<span class="token punctuation">,</span> String message<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>code <span class="token operator">=</span> code<span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>message <span class="token operator">=</span> message<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span>
+</code></pre></div><p>上面代码就是作用2、3点提及的枚举的工程应用，代码比较简单，不做解析。</p> <h2 id="枚举类字节码分析"><a href="#枚举类字节码分析" aria-hidden="true" class="header-anchor">#</a> 枚举类字节码分析</h2> <p>先对枚举类基本的字节码做基本的分析，细节后面会慢慢提及，会尽量一步一步去介绍字节码，降低阅读难度。我们先来看一个最简单的枚举类：</p> <div class="language-java extra-class"><pre class="language-java"><code><span class="token keyword">public</span> <span class="token keyword">enum</span> Color<span class="token punctuation">{</span>
+    RED<span class="token punctuation">,</span>
+    BLUE<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>编译成class文件之后，用javap解析字节码：javap -v Color.class，下面是完整的字节码，后面将逐一做分析。</p> <div class="language-java extra-class"><pre class="language-java"><code>Classfile <span class="token operator">/</span>D<span class="token operator">:</span><span class="token operator">/</span>code<span class="token operator">/</span>untitled<span class="token operator">/</span>out<span class="token operator">/</span>production<span class="token operator">/</span>untitled<span class="token operator">/</span>Color<span class="token punctuation">.</span><span class="token keyword">class</span>
+  <span class="token class-name">Last</span> modified <span class="token number">2018</span><span class="token operator">-</span><span class="token number">10</span><span class="token operator">-</span><span class="token number">10</span><span class="token punctuation">;</span> size <span class="token number">840</span> bytes
+  MD5 checksum <span class="token number">57</span>b2d489954a5f4eb4361793251c2f31
+  Compiled from <span class="token string">&quot;Color.java&quot;</span>
+<span class="token keyword">public</span> <span class="token keyword">final</span> <span class="token keyword">class</span> <span class="token class-name">Color</span> <span class="token keyword">extends</span> <span class="token class-name">java<span class="token punctuation">.</span>lang<span class="token punctuation">.</span>Enum</span><span class="token generics function"><span class="token punctuation">&lt;</span>Color<span class="token punctuation">&gt;</span></span>
+  minor version<span class="token operator">:</span> <span class="token number">0</span>
+  major version<span class="token operator">:</span> <span class="token number">54</span>
+  flags<span class="token operator">:</span> ACC_PUBLIC<span class="token punctuation">,</span> ACC_FINAL<span class="token punctuation">,</span> ACC_SUPER<span class="token punctuation">,</span> ACC_ENUM
+Constant pool<span class="token operator">:</span>
+   #<span class="token number">1</span> <span class="token operator">=</span> Fieldref           #<span class="token number">4.</span>#<span class="token number">36</span>         <span class="token comment">// Color.$VALUES:[LColor;</span>
+   #<span class="token number">2</span> <span class="token operator">=</span> Methodref          #<span class="token number">37.</span>#<span class="token number">38</span>        <span class="token comment">// &quot;[LColor;&quot;.clone:()Ljava/lang/Object;</span>
+   #<span class="token number">3</span> <span class="token operator">=</span> Class              #<span class="token number">17</span>            <span class="token comment">// &quot;[LColor;&quot;</span>
+   #<span class="token number">4</span> <span class="token operator">=</span> Class              #<span class="token number">39</span>            <span class="token comment">// Color</span>
+   #<span class="token number">5</span> <span class="token operator">=</span> Methodref          #<span class="token number">12.</span>#<span class="token number">40</span>        <span class="token comment">// java/lang/Enum.valueOf:(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;</span>
+   #<span class="token number">6</span> <span class="token operator">=</span> Methodref          #<span class="token number">12.</span>#<span class="token number">41</span>        <span class="token comment">// java/lang/Enum.&quot;&lt;init&gt;&quot;:(Ljava/lang/String;I)V</span>
+   #<span class="token number">7</span> <span class="token operator">=</span> String             #<span class="token number">13</span>            <span class="token comment">// RED</span>
+   #<span class="token number">8</span> <span class="token operator">=</span> Methodref          #<span class="token number">4.</span>#<span class="token number">41</span>         <span class="token comment">// Color.&quot;&lt;init&gt;&quot;:(Ljava/lang/String;I)V</span>
+   #<span class="token number">9</span> <span class="token operator">=</span> Fieldref           #<span class="token number">4.</span>#<span class="token number">42</span>         <span class="token comment">// Color.RED:LColor;</span>
+  #<span class="token number">10</span> <span class="token operator">=</span> String             #<span class="token number">15</span>            <span class="token comment">// BLUE</span>
+  #<span class="token number">11</span> <span class="token operator">=</span> Fieldref           #<span class="token number">4.</span>#<span class="token number">43</span>         <span class="token comment">// Color.BLUE:LColor;</span>
+  #<span class="token number">12</span> <span class="token operator">=</span> Class              #<span class="token number">44</span>            <span class="token comment">// java/lang/Enum</span>
+  #<span class="token number">13</span> <span class="token operator">=</span> Utf8               RED
+  #<span class="token number">14</span> <span class="token operator">=</span> Utf8               LColor<span class="token punctuation">;</span>
+  #<span class="token number">15</span> <span class="token operator">=</span> Utf8               BLUE
+  #<span class="token number">16</span> <span class="token operator">=</span> Utf8               $VALUES
+  #<span class="token number">17</span> <span class="token operator">=</span> Utf8               <span class="token punctuation">[</span>LColor<span class="token punctuation">;</span>
+  #<span class="token number">18</span> <span class="token operator">=</span> Utf8               values
+  #<span class="token number">19</span> <span class="token operator">=</span> Utf8               <span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">[</span>LColor<span class="token punctuation">;</span>
+  #<span class="token number">20</span> <span class="token operator">=</span> Utf8               Code
+  #<span class="token number">21</span> <span class="token operator">=</span> Utf8               LineNumberTable
+  #<span class="token number">22</span> <span class="token operator">=</span> Utf8               valueOf
+  #<span class="token number">23</span> <span class="token operator">=</span> Utf8               <span class="token punctuation">(</span>Ljava<span class="token operator">/</span>lang<span class="token operator">/</span>String<span class="token punctuation">;</span><span class="token punctuation">)</span>LColor<span class="token punctuation">;</span>
+  #<span class="token number">24</span> <span class="token operator">=</span> Utf8               LocalVariableTable
+  #<span class="token number">25</span> <span class="token operator">=</span> Utf8               name
+  #<span class="token number">26</span> <span class="token operator">=</span> Utf8               Ljava<span class="token operator">/</span>lang<span class="token operator">/</span>String<span class="token punctuation">;</span>
+  #<span class="token number">27</span> <span class="token operator">=</span> Utf8               <span class="token generics function"><span class="token punctuation">&lt;</span>init<span class="token punctuation">&gt;</span></span>
+  #<span class="token number">28</span> <span class="token operator">=</span> Utf8               <span class="token punctuation">(</span>Ljava<span class="token operator">/</span>lang<span class="token operator">/</span>String<span class="token punctuation">;</span>I<span class="token punctuation">)</span>V
+  #<span class="token number">29</span> <span class="token operator">=</span> Utf8               <span class="token keyword">this</span>
+  #<span class="token number">30</span> <span class="token operator">=</span> Utf8               Signature
+  #<span class="token number">31</span> <span class="token operator">=</span> Utf8               <span class="token punctuation">(</span><span class="token punctuation">)</span>V
+  #<span class="token number">32</span> <span class="token operator">=</span> Utf8               <span class="token generics function"><span class="token punctuation">&lt;</span>clinit<span class="token punctuation">&gt;</span></span>
+  #<span class="token number">33</span> <span class="token operator">=</span> Utf8               Ljava<span class="token operator">/</span>lang<span class="token operator">/</span>Enum<span class="token operator">&lt;</span>LColor<span class="token punctuation">;</span><span class="token operator">&gt;</span><span class="token punctuation">;</span>
+  #<span class="token number">34</span> <span class="token operator">=</span> Utf8               SourceFile
+  #<span class="token number">35</span> <span class="token operator">=</span> Utf8               Color<span class="token punctuation">.</span>java
+  #<span class="token number">36</span> <span class="token operator">=</span> NameAndType        #<span class="token number">16</span><span class="token operator">:</span>#<span class="token number">17</span>        <span class="token comment">// $VALUES:[LColor;</span>
+  #<span class="token number">37</span> <span class="token operator">=</span> Class              #<span class="token number">17</span>            <span class="token comment">// &quot;[LColor;&quot;</span>
+  #<span class="token number">38</span> <span class="token operator">=</span> NameAndType        #<span class="token number">45</span><span class="token operator">:</span>#<span class="token number">46</span>        <span class="token comment">// clone:()Ljava/lang/Object;</span>
+  #<span class="token number">39</span> <span class="token operator">=</span> Utf8               Color
+  #<span class="token number">40</span> <span class="token operator">=</span> NameAndType        #<span class="token number">22</span><span class="token operator">:</span>#<span class="token number">47</span>        <span class="token comment">// valueOf:(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;</span>
+  #<span class="token number">41</span> <span class="token operator">=</span> NameAndType        #<span class="token number">27</span><span class="token operator">:</span>#<span class="token number">28</span>        <span class="token comment">// &quot;&lt;init&gt;&quot;:(Ljava/lang/String;I)V</span>
+  #<span class="token number">42</span> <span class="token operator">=</span> NameAndType        #<span class="token number">13</span><span class="token operator">:</span>#<span class="token number">14</span>        <span class="token comment">// RED:LColor;</span>
+  #<span class="token number">43</span> <span class="token operator">=</span> NameAndType        #<span class="token number">15</span><span class="token operator">:</span>#<span class="token number">14</span>        <span class="token comment">// BLUE:LColor;</span>
+  #<span class="token number">44</span> <span class="token operator">=</span> Utf8               java<span class="token operator">/</span>lang<span class="token operator">/</span>Enum
+  #<span class="token number">45</span> <span class="token operator">=</span> Utf8               clone
+  #<span class="token number">46</span> <span class="token operator">=</span> Utf8               <span class="token punctuation">(</span><span class="token punctuation">)</span>Ljava<span class="token operator">/</span>lang<span class="token operator">/</span>Object<span class="token punctuation">;</span>
+  #<span class="token number">47</span> <span class="token operator">=</span> Utf8               <span class="token punctuation">(</span>Ljava<span class="token operator">/</span>lang<span class="token operator">/</span>Class<span class="token punctuation">;</span>Ljava<span class="token operator">/</span>lang<span class="token operator">/</span>String<span class="token punctuation">;</span><span class="token punctuation">)</span>Ljava<span class="token operator">/</span>lang<span class="token operator">/</span>Enum<span class="token punctuation">;</span>
+<span class="token punctuation">{</span>
+  <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">final</span> Color RED<span class="token punctuation">;</span>
+    descriptor<span class="token operator">:</span> LColor<span class="token punctuation">;</span>
+    flags<span class="token operator">:</span> ACC_PUBLIC<span class="token punctuation">,</span> ACC_STATIC<span class="token punctuation">,</span> ACC_FINAL<span class="token punctuation">,</span> ACC_ENUM
+
+  <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">final</span> Color BLUE<span class="token punctuation">;</span>
+    descriptor<span class="token operator">:</span> LColor<span class="token punctuation">;</span>
+    flags<span class="token operator">:</span> ACC_PUBLIC<span class="token punctuation">,</span> ACC_STATIC<span class="token punctuation">,</span> ACC_FINAL<span class="token punctuation">,</span> ACC_ENUM
+
+  <span class="token keyword">public</span> <span class="token keyword">static</span> Color<span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token function">values</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    descriptor<span class="token operator">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">[</span>LColor<span class="token punctuation">;</span>
+    flags<span class="token operator">:</span> ACC_PUBLIC<span class="token punctuation">,</span> ACC_STATIC
+    Code<span class="token operator">:</span>
+      stack<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">,</span> locals<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span> args_size<span class="token operator">=</span><span class="token number">0</span>
+         <span class="token number">0</span><span class="token operator">:</span> getstatic     #<span class="token number">1</span>                  <span class="token comment">// Field $VALUES:[LColor;</span>
+         <span class="token number">3</span><span class="token operator">:</span> invokevirtual #<span class="token number">2</span>                  <span class="token comment">// Method &quot;[LColor;&quot;.clone:()Ljava/lang/Object;</span>
+         <span class="token number">6</span><span class="token operator">:</span> checkcast     #<span class="token number">3</span>                  <span class="token comment">// class &quot;[LColor;&quot;</span>
+         <span class="token number">9</span><span class="token operator">:</span> areturn
+      LineNumberTable<span class="token operator">:</span>
+        line <span class="token number">5</span><span class="token operator">:</span> <span class="token number">0</span>
+
+  <span class="token keyword">public</span> <span class="token keyword">static</span> Color <span class="token function">valueOf</span><span class="token punctuation">(</span>java<span class="token punctuation">.</span>lang<span class="token punctuation">.</span>String<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    descriptor<span class="token operator">:</span> <span class="token punctuation">(</span>Ljava<span class="token operator">/</span>lang<span class="token operator">/</span>String<span class="token punctuation">;</span><span class="token punctuation">)</span>LColor<span class="token punctuation">;</span>
+    flags<span class="token operator">:</span> ACC_PUBLIC<span class="token punctuation">,</span> ACC_STATIC
+    Code<span class="token operator">:</span>
+      stack<span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">,</span> locals<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">,</span> args_size<span class="token operator">=</span><span class="token number">1</span>
+         <span class="token number">0</span><span class="token operator">:</span> ldc           #<span class="token number">4</span>                  <span class="token comment">// class Color</span>
+         <span class="token number">2</span><span class="token operator">:</span> aload_0
+         <span class="token number">3</span><span class="token operator">:</span> invokestatic  #<span class="token number">5</span>                  <span class="token comment">// Method java/lang/Enum.valueOf:(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;</span>
+         <span class="token number">6</span><span class="token operator">:</span> checkcast     #<span class="token number">4</span>                  <span class="token comment">// class Color</span>
+         <span class="token number">9</span><span class="token operator">:</span> areturn
+      LineNumberTable<span class="token operator">:</span>
+        line <span class="token number">5</span><span class="token operator">:</span> <span class="token number">0</span>
+      LocalVariableTable<span class="token operator">:</span>
+        Start  Length  Slot  Name   Signature
+            <span class="token number">0</span>      <span class="token number">10</span>     <span class="token number">0</span>  name   Ljava<span class="token operator">/</span>lang<span class="token operator">/</span>String<span class="token punctuation">;</span>
+
+  <span class="token keyword">static</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+    descriptor<span class="token operator">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span>V
+    flags<span class="token operator">:</span> ACC_STATIC
+    Code<span class="token operator">:</span>
+      stack<span class="token operator">=</span><span class="token number">4</span><span class="token punctuation">,</span> locals<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span> args_size<span class="token operator">=</span><span class="token number">0</span>
+         <span class="token number">0</span><span class="token operator">:</span> <span class="token keyword">new</span>           #<span class="token number">4</span>                  <span class="token comment">// class Color</span>
+         <span class="token number">3</span><span class="token operator">:</span> dup
+         <span class="token number">4</span><span class="token operator">:</span> ldc           #<span class="token number">7</span>                  <span class="token comment">// String RED</span>
+         <span class="token number">6</span><span class="token operator">:</span> iconst_0
+         <span class="token number">7</span><span class="token operator">:</span> invokespecial #<span class="token number">8</span>                  <span class="token comment">// Method &quot;&lt;init&gt;&quot;:(Ljava/lang/String;I)V</span>
+        <span class="token number">10</span><span class="token operator">:</span> putstatic     #<span class="token number">9</span>                  <span class="token comment">// Field RED:LColor;</span>
+        <span class="token number">13</span><span class="token operator">:</span> <span class="token keyword">new</span>           #<span class="token number">4</span>                  <span class="token comment">// class Color</span>
+        <span class="token number">16</span><span class="token operator">:</span> dup
+        <span class="token number">17</span><span class="token operator">:</span> ldc           #<span class="token number">10</span>                 <span class="token comment">// String BLUE</span>
+        <span class="token number">19</span><span class="token operator">:</span> iconst_1
+        <span class="token number">20</span><span class="token operator">:</span> invokespecial #<span class="token number">8</span>                  <span class="token comment">// Method &quot;&lt;init&gt;&quot;:(Ljava/lang/String;I)V</span>
+        <span class="token number">23</span><span class="token operator">:</span> putstatic     #<span class="token number">11</span>                 <span class="token comment">// Field BLUE:LColor;</span>
+        <span class="token number">26</span><span class="token operator">:</span> iconst_2
+        <span class="token number">27</span><span class="token operator">:</span> anewarray     #<span class="token number">4</span>                  <span class="token comment">// class Color</span>
+        <span class="token number">30</span><span class="token operator">:</span> dup
+        <span class="token number">31</span><span class="token operator">:</span> iconst_0
+        <span class="token number">32</span><span class="token operator">:</span> getstatic     #<span class="token number">9</span>                  <span class="token comment">// Field RED:LColor;</span>
+        <span class="token number">35</span><span class="token operator">:</span> aastore
+        <span class="token number">36</span><span class="token operator">:</span> dup
+        <span class="token number">37</span><span class="token operator">:</span> iconst_1
+        <span class="token number">38</span><span class="token operator">:</span> getstatic     #<span class="token number">11</span>                 <span class="token comment">// Field BLUE:LColor;</span>
+        <span class="token number">41</span><span class="token operator">:</span> aastore
+        <span class="token number">42</span><span class="token operator">:</span> putstatic     #<span class="token number">1</span>                  <span class="token comment">// Field $VALUES:[LColor;</span>
+        <span class="token number">45</span><span class="token operator">:</span> <span class="token keyword">return</span>
+      LineNumberTable<span class="token operator">:</span>
+        line <span class="token number">6</span><span class="token operator">:</span> <span class="token number">0</span>
+        line <span class="token number">7</span><span class="token operator">:</span> <span class="token number">13</span>
+        line <span class="token number">5</span><span class="token operator">:</span> <span class="token number">26</span>
+<span class="token punctuation">}</span>
+Signature<span class="token operator">:</span> #<span class="token number">33</span>                          <span class="token comment">// Ljava/lang/Enum&lt;LColor;&gt;;</span>
+SourceFile<span class="token operator">:</span> <span class="token string">&quot;Color.java&quot;</span>
+</code></pre></div><div class="language-java extra-class"><pre class="language-java"><code><span class="token keyword">public</span> <span class="token keyword">final</span> <span class="token keyword">class</span> <span class="token class-name">Color</span> <span class="token keyword">extends</span> <span class="token class-name">java<span class="token punctuation">.</span>lang<span class="token punctuation">.</span>Enum</span><span class="token generics function"><span class="token punctuation">&lt;</span>Color<span class="token punctuation">&gt;</span></span>
+</code></pre></div><p>可以看出枚举类是默认是继承了java.lang.Enum类，Java字节码格式并不禁止继承java.lang.Enum，但是javac编译器硬性不让你继承java.lang.Enum，Kotilin编译器是可以继承Enum的，如下图：
+<img src="https://grandachn-1258245022.cos.ap-guangzhou.myqcloud.com/20181022155439646.png" alt="Kotilin代码继承Enum"></p> <div class="language-java extra-class"><pre class="language-java"><code><span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">final</span> Color RED<span class="token punctuation">;</span>
+    descriptor<span class="token operator">:</span> LColor<span class="token punctuation">;</span>
+    flags<span class="token operator">:</span> ACC_PUBLIC<span class="token punctuation">,</span> ACC_STATIC<span class="token punctuation">,</span> ACC_FINAL<span class="token punctuation">,</span> ACC_ENUM
+
+<span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">final</span> Color BLUE<span class="token punctuation">;</span>
+	descriptor<span class="token operator">:</span> LColor<span class="token punctuation">;</span>
+	flags<span class="token operator">:</span> ACC_PUBLIC<span class="token punctuation">,</span> ACC_STATIC<span class="token punctuation">,</span> ACC_FINAL<span class="token punctuation">,</span> ACC_ENUM
+</code></pre></div><p>枚举量RED和BLUE被编译成Color类的final类变量。</p> <div class="language-java extra-class"><pre class="language-java"><code><span class="token keyword">public</span> <span class="token keyword">static</span> Color<span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token function">values</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    descriptor<span class="token operator">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">[</span>LColor<span class="token punctuation">;</span>
+    flags<span class="token operator">:</span> ACC_PUBLIC<span class="token punctuation">,</span> ACC_STATIC
+    Code<span class="token operator">:</span>
+      stack<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">,</span> locals<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span> args_size<span class="token operator">=</span><span class="token number">0</span>
+         <span class="token number">0</span><span class="token operator">:</span> getstatic     #<span class="token number">1</span>                  <span class="token comment">// Field $VALUES:[LColor;</span>
+         <span class="token number">3</span><span class="token operator">:</span> invokevirtual #<span class="token number">2</span>                  <span class="token comment">// Method &quot;[LColor;&quot;.clone:()Ljava/lang/Object;</span>
+         <span class="token number">6</span><span class="token operator">:</span> checkcast     #<span class="token number">3</span>                  <span class="token comment">// class &quot;[LColor;&quot;</span>
+         <span class="token number">9</span><span class="token operator">:</span> areturn
+      LineNumberTable<span class="token operator">:</span>
+        line <span class="token number">5</span><span class="token operator">:</span> <span class="token number">0</span>
+</code></pre></div><p>values()用来返回定义的枚举量的数组，该方法由编译器生成，在java.lang.Enum类中都是找不到的。简单解释一下该方法的字节码：首先getstatic获取常量池中的Color[]变量，调用它的clone()方法返回一个java/lang/Object对象，checkcast #3（#3 对应常量池中的[LColor，[表示是数组，L表示是应用类型）检查java/lang/Object对象是否是Color[]对象，areturn从当前方法返回对象引用。至于这个常量池中的Color[]变量是怎么初始化的呢，下面继续看。</p> <div class="language-java extra-class"><pre class="language-java"><code> <span class="token keyword">static</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+    descriptor<span class="token operator">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span>V
+    flags<span class="token operator">:</span> ACC_STATIC
+    Code<span class="token operator">:</span>
+      stack<span class="token operator">=</span><span class="token number">4</span><span class="token punctuation">,</span> locals<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span> args_size<span class="token operator">=</span><span class="token number">0</span>
+         <span class="token number">0</span><span class="token operator">:</span> <span class="token keyword">new</span>           #<span class="token number">4</span>                  <span class="token comment">// class Color</span>
+         <span class="token number">3</span><span class="token operator">:</span> dup
+         <span class="token number">4</span><span class="token operator">:</span> ldc           #<span class="token number">7</span>                  <span class="token comment">// String RED</span>
+         <span class="token number">6</span><span class="token operator">:</span> iconst_0
+         <span class="token number">7</span><span class="token operator">:</span> invokespecial #<span class="token number">8</span>                  <span class="token comment">// Method &quot;&lt;init&gt;&quot;:(Ljava/lang/String;I)V</span>
+        <span class="token number">10</span><span class="token operator">:</span> putstatic     #<span class="token number">9</span>                  <span class="token comment">// Field RED:LColor;</span>
+        <span class="token number">13</span><span class="token operator">:</span> <span class="token keyword">new</span>           #<span class="token number">4</span>                  <span class="token comment">// class Color</span>
+        <span class="token number">16</span><span class="token operator">:</span> dup
+        <span class="token number">17</span><span class="token operator">:</span> ldc           #<span class="token number">10</span>                 <span class="token comment">// String BLUE</span>
+        <span class="token number">19</span><span class="token operator">:</span> iconst_1
+        <span class="token number">20</span><span class="token operator">:</span> invokespecial #<span class="token number">8</span>                  <span class="token comment">// Method &quot;&lt;init&gt;&quot;:(Ljava/lang/String;I)V</span>
+        <span class="token number">23</span><span class="token operator">:</span> putstatic     #<span class="token number">11</span>                 <span class="token comment">// Field BLUE:LColor;</span>
+        <span class="token number">26</span><span class="token operator">:</span> iconst_2
+        <span class="token number">27</span><span class="token operator">:</span> anewarray     #<span class="token number">4</span>                  <span class="token comment">// class Color</span>
+        <span class="token number">30</span><span class="token operator">:</span> dup
+        <span class="token number">31</span><span class="token operator">:</span> iconst_0
+        <span class="token number">32</span><span class="token operator">:</span> getstatic     #<span class="token number">9</span>                  <span class="token comment">// Field RED:LColor;</span>
+        <span class="token number">35</span><span class="token operator">:</span> aastore
+        <span class="token number">36</span><span class="token operator">:</span> dup
+        <span class="token number">37</span><span class="token operator">:</span> iconst_1
+        <span class="token number">38</span><span class="token operator">:</span> getstatic     #<span class="token number">11</span>                 <span class="token comment">// Field BLUE:LColor;</span>
+        <span class="token number">41</span><span class="token operator">:</span> aastore
+        <span class="token number">42</span><span class="token operator">:</span> putstatic     #<span class="token number">1</span>                  <span class="token comment">// Field $VALUES:[LColor;</span>
+        <span class="token number">45</span><span class="token operator">:</span> <span class="token keyword">return</span>
+      LineNumberTable<span class="token operator">:</span>
+        line <span class="token number">6</span><span class="token operator">:</span> <span class="token number">0</span>
+        line <span class="token number">7</span><span class="token operator">:</span> <span class="token number">13</span>
+        line <span class="token number">5</span><span class="token operator">:</span> <span class="token number">26</span>
+</code></pre></div><p>上面是static代码块，会在一个类被加载时执行。从27行看起， anewarray   创建一个引用型（如类，接口，数组）的数组，并将其引用值压入栈顶，dup复制栈顶数值并将复制值压入栈顶 ，iconst_0将int型0推送至栈顶 ，getstatic 获取指定类的静态域，并将其值压入栈顶 ， aastore将栈顶引用型数值存入指定数组的指定索引位置。36到41行重复以上操作，42行putstatic为指定的类的静态域赋值，即将栈中的Color[]的引用赋值到Color类的静态域，最后return，也就完成了Color[]的初始化。</p> <p>上面提及的栈是<strong>栈帧</strong>的<strong>操作数栈</strong>，JVM中一个线程会有一个对应的线程栈，线程栈中压入弹出的基本单位是栈帧，一个方法的调用，会让该方法对应的栈帧入栈，方法return，对应的栈帧出栈。其中，每个栈帧中会有一个自己的操作数栈，是用来存放jvm指令的操作数的。操作数栈的变化如下图:
+<img src="https://grandachn-1258245022.cos.ap-guangzhou.myqcloud.com/20181022164729149.png" alt="在这里插入图片描述"></p> <h2 id="values-方法和ordinal-方法"><a href="#values-方法和ordinal-方法" aria-hidden="true" class="header-anchor">#</a> values()方法和ordinal()方法</h2> <p>values()方法返回一个包含所有定义枚举量的数组，数组中枚举量的顺序和定义的先后顺序是一致的。values()方法在上一节中也详细分析过其字节码，故不再过多解释。ordinal()方法返回一个int的值，该值从0开始递增，反映了枚举量的定义顺序。如前文中的Color枚举类，Color.RED.ordinal()返回的是0， Color.BLUE.ordinal()返回的是1。</p> <h2 id="枚举类特性"><a href="#枚举类特性" aria-hidden="true" class="header-anchor">#</a> 枚举类特性</h2> <h3 id="_1-支持定义方法，同时支持方法的重写（override）"><a href="#_1-支持定义方法，同时支持方法的重写（override）" aria-hidden="true" class="header-anchor">#</a> 1.支持定义方法，同时支持方法的重写（Override）</h3> <p>枚举类的字节码也是个普通的类，支持定义方法自然就不用说了。但是枚举类的字节码是被final修饰的，final修饰的类是不能被继承的，我们一般方法的重写是子类重写父类的方法，既然枚举不能被继承，那重写又是怎么实现的呢？我们先看代码：</p> <div class="language-java extra-class"><pre class="language-java"><code><span class="token keyword">public</span> <span class="token keyword">enum</span> Color <span class="token punctuation">{</span>
+    RED<span class="token punctuation">{</span>
+        <span class="token annotation punctuation">@Override</span>
+        <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">paint</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">&quot;I am red&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    BLUE<span class="token punctuation">{</span>
+        <span class="token annotation punctuation">@Override</span>
+        <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">paint</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">&quot;I am blue&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    DEFAULT<span class="token punctuation">;</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">paint</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">&quot;I am color&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        RED<span class="token punctuation">.</span><span class="token function">paint</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        BLUE<span class="token punctuation">.</span><span class="token function">paint</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        DEFAULT<span class="token punctuation">.</span><span class="token function">paint</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>执行main()方法，输出如下：</p> <div class="language- extra-class"><pre class="language-text"><code>I am red
+I am blue
+I am color
+</code></pre></div><p>RED和BLUE不都是Color类的一个对象吗，怎么就可以重写方法了呢？ 这里不难猜到，RED和BLUE应该都是Color类的子类的实例，是子类对方法进行了重写，为了验证我们的猜想，我们看看编译的class文件。
+<img src="https://grandachn-1258245022.cos.ap-guangzhou.myqcloud.com/20181022172600150.png" alt="在这里插入图片描述">
+熟悉匿名内部类的很容易就看出这个Color$1.class和Color$2.class是Color的匿名内部类了。
+我们反编译一下Color$1.class，如下：</p> <div class="language-java extra-class"><pre class="language-java"><code> Classfile <span class="token operator">/</span>D<span class="token operator">:</span><span class="token operator">/</span>code<span class="token operator">/</span>javaTest<span class="token operator">/</span>out<span class="token operator">/</span>production<span class="token operator">/</span>javaTest<span class="token operator">/</span>Color$<span class="token number">1.</span><span class="token keyword">class</span>
+  <span class="token class-name">Last</span> modified <span class="token number">2018</span><span class="token operator">-</span><span class="token number">10</span><span class="token operator">-</span><span class="token number">22</span><span class="token punctuation">;</span> size <span class="token number">576</span> bytes
+  MD5 checksum <span class="token number">3</span>c7b8ff46935f53c4e0a0bc0a6d935dc
+  Compiled from <span class="token string">&quot;Color.java&quot;</span>
+<span class="token keyword">final</span> <span class="token keyword">class</span> <span class="token class-name">Color</span>$<span class="token number">1</span> <span class="token keyword">extends</span> <span class="token class-name">Color</span>
+  minor version<span class="token operator">:</span> <span class="token number">0</span>
+  major version<span class="token operator">:</span> <span class="token number">52</span>
+  flags<span class="token operator">:</span> ACC_FINAL<span class="token punctuation">,</span> ACC_SUPER<span class="token punctuation">,</span> ACC_ENUM
+Constant pool<span class="token operator">:</span>
+   #<span class="token number">1</span> <span class="token operator">=</span> Methodref          #<span class="token number">6.</span>#<span class="token number">20</span>         <span class="token comment">// Color.&quot;&lt;init&gt;&quot;:(Ljava/lang/String;ILColor$1;)V</span>
+   #<span class="token number">2</span> <span class="token operator">=</span> Fieldref           #<span class="token number">21.</span>#<span class="token number">22</span>        <span class="token comment">// java/lang/System.out:Ljava/io/PrintStream;</span>
+   #<span class="token number">3</span> <span class="token operator">=</span> String             #<span class="token number">23</span>            <span class="token comment">// I am red</span>
+   #<span class="token number">4</span> <span class="token operator">=</span> Methodref          #<span class="token number">24.</span>#<span class="token number">25</span>        <span class="token comment">// java/io/PrintStream.println:(Ljava/lang/String;)V</span>
+   #<span class="token number">5</span> <span class="token operator">=</span> Class              #<span class="token number">26</span>            <span class="token comment">// Color$1</span>
+   #<span class="token number">6</span> <span class="token operator">=</span> Class              #<span class="token number">27</span>            <span class="token comment">// Color</span>
+   #<span class="token number">7</span> <span class="token operator">=</span> Utf8               <span class="token generics function"><span class="token punctuation">&lt;</span>init<span class="token punctuation">&gt;</span></span>
+   #<span class="token number">8</span> <span class="token operator">=</span> Utf8               <span class="token punctuation">(</span>Ljava<span class="token operator">/</span>lang<span class="token operator">/</span>String<span class="token punctuation">;</span>I<span class="token punctuation">)</span>V
+   #<span class="token number">9</span> <span class="token operator">=</span> Utf8               Code
+  #<span class="token number">10</span> <span class="token operator">=</span> Utf8               LineNumberTable
+  #<span class="token number">11</span> <span class="token operator">=</span> Utf8               LocalVariableTable
+  #<span class="token number">12</span> <span class="token operator">=</span> Utf8               <span class="token keyword">this</span>
+  #<span class="token number">13</span> <span class="token operator">=</span> Utf8               InnerClasses
+  #<span class="token number">14</span> <span class="token operator">=</span> Utf8               LColor$<span class="token number">1</span><span class="token punctuation">;</span>
+  #<span class="token number">15</span> <span class="token operator">=</span> Utf8               paint
+  #<span class="token number">16</span> <span class="token operator">=</span> Utf8               <span class="token punctuation">(</span><span class="token punctuation">)</span>V
+  #<span class="token number">17</span> <span class="token operator">=</span> Utf8               SourceFile
+  #<span class="token number">18</span> <span class="token operator">=</span> Utf8               Color<span class="token punctuation">.</span>java
+  #<span class="token number">19</span> <span class="token operator">=</span> Utf8               EnclosingMethod
+  #<span class="token number">20</span> <span class="token operator">=</span> NameAndType        #<span class="token number">7</span><span class="token operator">:</span>#<span class="token number">28</span>         <span class="token comment">// &quot;&lt;init&gt;&quot;:(Ljava/lang/String;ILColor$1;)V</span>
+  #<span class="token number">21</span> <span class="token operator">=</span> Class              #<span class="token number">29</span>            <span class="token comment">// java/lang/System</span>
+  #<span class="token number">22</span> <span class="token operator">=</span> NameAndType        #<span class="token number">30</span><span class="token operator">:</span>#<span class="token number">31</span>        <span class="token comment">// out:Ljava/io/PrintStream;</span>
+  #<span class="token number">23</span> <span class="token operator">=</span> Utf8               I am red
+  #<span class="token number">24</span> <span class="token operator">=</span> Class              #<span class="token number">32</span>            <span class="token comment">// java/io/PrintStream</span>
+  #<span class="token number">25</span> <span class="token operator">=</span> NameAndType        #<span class="token number">33</span><span class="token operator">:</span>#<span class="token number">34</span>        <span class="token comment">// println:(Ljava/lang/String;)V</span>
+  #<span class="token number">26</span> <span class="token operator">=</span> Utf8               Color$<span class="token number">1</span>
+  #<span class="token number">27</span> <span class="token operator">=</span> Utf8               Color
+  #<span class="token number">28</span> <span class="token operator">=</span> Utf8               <span class="token punctuation">(</span>Ljava<span class="token operator">/</span>lang<span class="token operator">/</span>String<span class="token punctuation">;</span>ILColor$<span class="token number">1</span><span class="token punctuation">;</span><span class="token punctuation">)</span>V
+  #<span class="token number">29</span> <span class="token operator">=</span> Utf8               java<span class="token operator">/</span>lang<span class="token operator">/</span>System
+  #<span class="token number">30</span> <span class="token operator">=</span> Utf8               out
+  #<span class="token number">31</span> <span class="token operator">=</span> Utf8               Ljava<span class="token operator">/</span>io<span class="token operator">/</span>PrintStream<span class="token punctuation">;</span>
+  #<span class="token number">32</span> <span class="token operator">=</span> Utf8               java<span class="token operator">/</span>io<span class="token operator">/</span>PrintStream
+  #<span class="token number">33</span> <span class="token operator">=</span> Utf8               println
+  #<span class="token number">34</span> <span class="token operator">=</span> Utf8               <span class="token punctuation">(</span>Ljava<span class="token operator">/</span>lang<span class="token operator">/</span>String<span class="token punctuation">;</span><span class="token punctuation">)</span>V
+<span class="token punctuation">{</span>
+  Color$<span class="token function">1</span><span class="token punctuation">(</span>java<span class="token punctuation">.</span>lang<span class="token punctuation">.</span>String<span class="token punctuation">,</span> <span class="token keyword">int</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    descriptor<span class="token operator">:</span> <span class="token punctuation">(</span>Ljava<span class="token operator">/</span>lang<span class="token operator">/</span>String<span class="token punctuation">;</span>I<span class="token punctuation">)</span>V
+    flags<span class="token operator">:</span>
+    Code<span class="token operator">:</span>
+      stack<span class="token operator">=</span><span class="token number">4</span><span class="token punctuation">,</span> locals<span class="token operator">=</span><span class="token number">3</span><span class="token punctuation">,</span> args_size<span class="token operator">=</span><span class="token number">3</span>
+         <span class="token number">0</span><span class="token operator">:</span> aload_0
+         <span class="token number">1</span><span class="token operator">:</span> aload_1
+         <span class="token number">2</span><span class="token operator">:</span> iload_2
+         <span class="token number">3</span><span class="token operator">:</span> aconst_null
+         <span class="token number">4</span><span class="token operator">:</span> invokespecial #<span class="token number">1</span>                  <span class="token comment">// Method Color.&quot;&lt;init&gt;&quot;:(Ljava/lang/String;ILColor$1;)V</span>
+         <span class="token number">7</span><span class="token operator">:</span> <span class="token keyword">return</span>
+      LineNumberTable<span class="token operator">:</span>
+        line <span class="token number">6</span><span class="token operator">:</span> <span class="token number">0</span>
+      LocalVariableTable<span class="token operator">:</span>
+        Start  Length  Slot  Name   Signature
+            <span class="token number">0</span>       <span class="token number">8</span>     <span class="token number">0</span>  <span class="token keyword">this</span>   LColor$<span class="token number">1</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">paint</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    descriptor<span class="token operator">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span>V
+    flags<span class="token operator">:</span> ACC_PUBLIC
+    Code<span class="token operator">:</span>
+      stack<span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">,</span> locals<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">,</span> args_size<span class="token operator">=</span><span class="token number">1</span>
+         <span class="token number">0</span><span class="token operator">:</span> getstatic     #<span class="token number">2</span>                  <span class="token comment">// Field java/lang/System.out:Ljava/io/PrintStream;</span>
+         <span class="token number">3</span><span class="token operator">:</span> ldc           #<span class="token number">3</span>                  <span class="token comment">// String I am red</span>
+         <span class="token number">5</span><span class="token operator">:</span> invokevirtual #<span class="token number">4</span>                  <span class="token comment">// Method java/io/PrintStream.println:(Ljava/lang/String;)V</span>
+         <span class="token number">8</span><span class="token operator">:</span> <span class="token keyword">return</span>
+      LineNumberTable<span class="token operator">:</span>
+        line <span class="token number">9</span><span class="token operator">:</span> <span class="token number">0</span>
+        line <span class="token number">10</span><span class="token operator">:</span> <span class="token number">8</span>
+      LocalVariableTable<span class="token operator">:</span>
+        Start  Length  Slot  Name   Signature
+            <span class="token number">0</span>       <span class="token number">9</span>     <span class="token number">0</span>  <span class="token keyword">this</span>   LColor$<span class="token number">1</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+SourceFile<span class="token operator">:</span> <span class="token string">&quot;Color.java&quot;</span>
+EnclosingMethod<span class="token operator">:</span> #<span class="token number">6.</span>#<span class="token number">0</span>                  <span class="token comment">// Color</span>
+InnerClasses<span class="token operator">:</span>
+     <span class="token keyword">static</span> #<span class="token number">5</span><span class="token punctuation">;</span> <span class="token comment">//class Color$1</span>
+</code></pre></div><div class="language-java extra-class"><pre class="language-java"><code><span class="token keyword">final</span> <span class="token keyword">class</span> <span class="token class-name">Color</span>$<span class="token number">1</span> <span class="token keyword">extends</span> <span class="token class-name">Color</span>
+</code></pre></div><p>看来final修饰的类只是对开发者来说是不能继承的，编译器校验到继承了final类的时候会报错退出编译。对编译器生成的类来说，还是可以继承final类的。试了一下，将先编译子类，再将父类改成final，再编译父类，绕过了编译器的语法校验，执行时还是会报出如下运行时异常：
+<img src="https://grandachn-1258245022.cos.ap-guangzhou.myqcloud.com/20181022175337408.png" alt="在这里插入图片描述">
+看来在ClassLoader进行类加载的时候，还是会检查子类是否继承了final的父类，这里我猜想可能是对内部类继承final类放开了限制，要是我们编写这样的内部类的话直接就编译不了了，至于是不是如此就得看JVM的源码或者是暴力构建这样的类的字节码了。</p> <p>这里再稍微提一下<strong>匿名内部类</strong>:</p> <ol><li>使用匿名内部类时，我们必须是继承一个类或者实现一个接口，但是两者不可兼得，同时也只能继承一个类或者实现一个接口。</li> <li>匿名内部类中是不能定义构造函数的。</li> <li>匿名内部类中不能存在任何的静态成员变量和静态方法。</li> <li>匿名内部类为局部内部类，所以局部内部类的所有限制同样对匿名内部类生效。</li> <li>匿名内部类不能是抽象的，它必须要实现继承的类或者实现的接口的所有抽象方法。</li></ol> <h3 id="_2-可实现接口，不可继承"><a href="#_2-可实现接口，不可继承" aria-hidden="true" class="header-anchor">#</a> 2.可实现接口，不可继承</h3> <p>前面提到，枚举类是默认继承了java.lang.Emum类的，Java语言是单继承的，所以枚举类自然就不能继承其他类了，但是枚举类是可以实现接口的，这带来的好处除了用接口去规范枚举类里面的方法，还能够用接口去组织枚举。
+接口组织枚举类的参考代码如下：</p> <div class="language-java extra-class"><pre class="language-java"><code><span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">Food</span> <span class="token punctuation">{</span>
+    <span class="token keyword">enum</span> Appetizer <span class="token keyword">implements</span> <span class="token class-name">Food</span><span class="token punctuation">{</span>
+        SALAD<span class="token punctuation">,</span> SOUP<span class="token punctuation">,</span> SPRING_ROLLS
+    <span class="token punctuation">}</span>
+    <span class="token keyword">enum</span> Coffee <span class="token keyword">implements</span> <span class="token class-name">Food</span><span class="token punctuation">{</span>
+        BLACK_COFFEE<span class="token punctuation">,</span> TEA<span class="token punctuation">,</span> LATTE
+    <span class="token punctuation">}</span>
+    <span class="token keyword">enum</span> Dessert <span class="token keyword">implements</span> <span class="token class-name">Food</span><span class="token punctuation">{</span>
+        FRUIT<span class="token punctuation">,</span> GELATO<span class="token punctuation">,</span> LASAGNE
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h2 id="name和ordinal"><a href="#name和ordinal" aria-hidden="true" class="header-anchor">#</a> name和ordinal</h2> <p>使用javap -v -p Color.class命令，带-v查看private方法，可以看到该Color枚举的构造方法如下：</p> <div class="language-java extra-class"><pre class="language-java"><code> <span class="token keyword">private</span> <span class="token function">Color</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    descriptor<span class="token operator">:</span> <span class="token punctuation">(</span>Ljava<span class="token operator">/</span>lang<span class="token operator">/</span>String<span class="token punctuation">;</span>I<span class="token punctuation">)</span>V
+    flags<span class="token operator">:</span> ACC_PRIVATE
+    Code<span class="token operator">:</span>
+      stack<span class="token operator">=</span><span class="token number">3</span><span class="token punctuation">,</span> locals<span class="token operator">=</span><span class="token number">3</span><span class="token punctuation">,</span> args_size<span class="token operator">=</span><span class="token number">3</span>
+         <span class="token number">0</span><span class="token operator">:</span> aload_0
+         <span class="token number">1</span><span class="token operator">:</span> aload_1
+         <span class="token number">2</span><span class="token operator">:</span> iload_2
+         <span class="token number">3</span><span class="token operator">:</span> invokespecial #<span class="token number">6</span>                  <span class="token comment">// Method java/lang/Enum.&quot;&lt;init&gt;&quot;:(Ljava/lang/String;I)V</span>
+         <span class="token number">6</span><span class="token operator">:</span> <span class="token keyword">return</span>
+      LineNumberTable<span class="token operator">:</span>
+        line <span class="token number">5</span><span class="token operator">:</span> <span class="token number">0</span>
+      LocalVariableTable<span class="token operator">:</span>
+        Start  Length  Slot  Name   Signature
+            <span class="token number">0</span>       <span class="token number">7</span>     <span class="token number">0</span>  <span class="token keyword">this</span>   LColor<span class="token punctuation">;</span>
+    Signature<span class="token operator">:</span> #<span class="token number">31</span>                          <span class="token comment">// ()V</span>
+</code></pre></div><p>上面这段字节码转成java代码就是：</p> <div class="language-java extra-class"><pre class="language-java"><code><span class="token keyword">private</span> <span class="token function">Color</span><span class="token punctuation">(</span>String name<span class="token punctuation">,</span> <span class="token keyword">int</span> ordinal<span class="token punctuation">)</span><span class="token punctuation">{</span>
+	<span class="token keyword">super</span><span class="token punctuation">(</span>name<span class="token punctuation">,</span> ordinal<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>其实就是调用了java.lang.Enum类的构造方法，其构造方法如下</p> <div class="language-java extra-class"><pre class="language-java"><code><span class="token comment">/**
+ * Sole constructor.  Programmers cannot invoke this constructor.
+ * It is for use by code emitted by the compiler in response to
+ * enum type declarations.
+ *
+ * @param name - The name of this enum constant, which is the identifier
+ *               used to declare it.
+ * @param ordinal - The ordinal of this enumeration constant (its position
+ *         in the enum declaration, where the initial constant is assigned
+ *         an ordinal of zero).
+ */</span>
+<span class="token keyword">protected</span> <span class="token function">Enum</span><span class="token punctuation">(</span>String name<span class="token punctuation">,</span> <span class="token keyword">int</span> ordinal<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>name <span class="token operator">=</span> name<span class="token punctuation">;</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>ordinal <span class="token operator">=</span> ordinal<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>如注释里面说的,这个构造方法是不能被开发者调用的，这个方法是编译器在编译声明的枚举类的时候，会被编译器调用，这里的name默认是枚举类型的名称，ordinal从0开始递增。但是如果就是想改变这个name和ordinal的值，也是可以通过反射实现的。</p> <div class="language-java extra-class"><pre class="language-java"><code><span class="token keyword">private</span> <span class="token function">Color</span><span class="token punctuation">(</span><span class="token keyword">int</span> ordinal<span class="token punctuation">,</span> String name<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+     <span class="token keyword">this</span><span class="token punctuation">.</span>ordinal <span class="token operator">=</span> ordinal<span class="token punctuation">;</span>
+     <span class="token keyword">this</span><span class="token punctuation">.</span>name <span class="token operator">=</span> name<span class="token punctuation">;</span>
+     <span class="token keyword">try</span> <span class="token punctuation">{</span>
+         Field ordinalField <span class="token operator">=</span> <span class="token function">getClass</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getSuperclass</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getDeclaredField</span><span class="token punctuation">(</span><span class="token string">&quot;ordinal&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+         ordinalField<span class="token punctuation">.</span><span class="token function">setAccessible</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+         ordinalField<span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">,</span> ordinal<span class="token punctuation">)</span><span class="token punctuation">;</span>
+         ordinalField<span class="token punctuation">.</span><span class="token function">setAccessible</span><span class="token punctuation">(</span><span class="token boolean">false</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+         Field nameField <span class="token operator">=</span> <span class="token function">getClass</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getSuperclass</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getDeclaredField</span><span class="token punctuation">(</span><span class="token string">&quot;name&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+         nameField<span class="token punctuation">.</span><span class="token function">setAccessible</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+         nameField<span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">,</span> name<span class="token punctuation">)</span><span class="token punctuation">;</span>
+         nameField<span class="token punctuation">.</span><span class="token function">setAccessible</span><span class="token punctuation">(</span><span class="token boolean">false</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+     <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">Exception</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+     
+     <span class="token punctuation">}</span>
+ <span class="token punctuation">}</span>
+</code></pre></div><h2 id="enumset和enummap"><a href="#enumset和enummap" aria-hidden="true" class="header-anchor">#</a> EnumSet和EnumMap</h2> <h3 id="_1-enumset替代位域"><a href="#_1-enumset替代位域" aria-hidden="true" class="header-anchor">#</a> 1. EnumSet替代位域</h3> <p>EnumSet是元素为枚举类的Set集合类，底层使用位域保存信息，速度比HashSet还要快。EnumSet是基于一个long类型的变量保存集合元素，一个long类型有64位（bit），每一个枚举元素需要1bit来表示该枚举元素是否处于EnumSet中。</p> <div class="language-java extra-class"><pre class="language-java"><code>EnumSet<span class="token punctuation">.</span>java
+<span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span>
+
+<span class="token annotation punctuation">@SafeVarargs</span>
+<span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token operator">&lt;</span>E <span class="token keyword">extends</span> <span class="token class-name">Enum</span><span class="token generics function"><span class="token punctuation">&lt;</span>E<span class="token punctuation">&gt;</span></span><span class="token operator">&gt;</span> EnumSet<span class="token generics function"><span class="token punctuation">&lt;</span>E<span class="token punctuation">&gt;</span></span> <span class="token function">of</span><span class="token punctuation">(</span>E first<span class="token punctuation">,</span> E<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> rest<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    EnumSet<span class="token generics function"><span class="token punctuation">&lt;</span>E<span class="token punctuation">&gt;</span></span> result <span class="token operator">=</span> <span class="token function">noneOf</span><span class="token punctuation">(</span>first<span class="token punctuation">.</span><span class="token function">getDeclaringClass</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    result<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>first<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span>E e <span class="token operator">:</span> rest<span class="token punctuation">)</span>
+        result<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> result<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token operator">&lt;</span>E <span class="token keyword">extends</span> <span class="token class-name">Enum</span><span class="token generics function"><span class="token punctuation">&lt;</span>E<span class="token punctuation">&gt;</span></span><span class="token operator">&gt;</span> EnumSet<span class="token generics function"><span class="token punctuation">&lt;</span>E<span class="token punctuation">&gt;</span></span> <span class="token function">noneOf</span><span class="token punctuation">(</span>Class<span class="token generics function"><span class="token punctuation">&lt;</span>E<span class="token punctuation">&gt;</span></span> elementType<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    Enum<span class="token operator">&lt;</span><span class="token operator">?</span><span class="token operator">&gt;</span><span class="token punctuation">[</span><span class="token punctuation">]</span> universe <span class="token operator">=</span> <span class="token function">getUniverse</span><span class="token punctuation">(</span>elementType<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>universe <span class="token operator">==</span> null<span class="token punctuation">)</span>
+        <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">ClassCastException</span><span class="token punctuation">(</span>elementType <span class="token operator">+</span> <span class="token string">&quot; not an enum&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>universe<span class="token punctuation">.</span>length <span class="token operator">&lt;=</span> <span class="token number">64</span><span class="token punctuation">)</span>
+        <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">RegularEnumSet</span><span class="token operator">&lt;</span><span class="token operator">&gt;</span><span class="token punctuation">(</span>elementType<span class="token punctuation">,</span> universe<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">else</span>
+        <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">JumboEnumSet</span><span class="token operator">&lt;</span><span class="token operator">&gt;</span><span class="token punctuation">(</span>elementType<span class="token punctuation">,</span> universe<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>可以看出，当枚举类的枚举量少于64时，会使用RegularEnumSet，否则会使用JumboEnumSet，这两个类都是EnumSet的子类，我们简单地看一下这两个类。</p> <div class="language-java extra-class"><pre class="language-java"><code><span class="token keyword">class</span> <span class="token class-name">RegularEnumSet</span><span class="token operator">&lt;</span>E <span class="token keyword">extends</span> <span class="token class-name">Enum</span><span class="token generics function"><span class="token punctuation">&lt;</span>E<span class="token punctuation">&gt;</span></span><span class="token operator">&gt;</span> <span class="token keyword">extends</span> <span class="token class-name">EnumSet</span><span class="token generics function"><span class="token punctuation">&lt;</span>E<span class="token punctuation">&gt;</span></span> <span class="token punctuation">{</span>
+	<span class="token comment">/**
+     * Bit vector representation of this set.  The 2^k bit indicates the
+     * presence of universe[k] in this set.
+     */</span>
+    <span class="token keyword">private</span> <span class="token keyword">long</span> elements <span class="token operator">=</span> <span class="token number">0</span>L<span class="token punctuation">;</span>
+    
+	<span class="token comment">/**
+     * Adds the specified element to this set if it is not already present.
+     *
+     * @param e element to be added to this set
+     * @return &lt;tt&gt;true&lt;/tt&gt; if the set changed as a result of the call
+     *
+     * @throws NullPointerException if &lt;tt&gt;e&lt;/tt&gt; is null
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">boolean</span> <span class="token function">add</span><span class="token punctuation">(</span>E e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">typeCheck</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">long</span> oldElements <span class="token operator">=</span> elements<span class="token punctuation">;</span>
+        elements <span class="token operator">|=</span> <span class="token punctuation">(</span><span class="token number">1</span>L <span class="token operator">&lt;&lt;</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>Enum<span class="token operator">&lt;</span><span class="token operator">?</span><span class="token operator">&gt;</span><span class="token punctuation">)</span>e<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">ordinal</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> elements <span class="token operator">!=</span> oldElements<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">/**
+     * Removes the specified element from this set if it is present.
+     *
+     * @param e element to be removed from this set, if present
+     * @return &lt;tt&gt;true&lt;/tt&gt; if the set contained the specified element
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">boolean</span> <span class="token function">remove</span><span class="token punctuation">(</span>Object e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>e <span class="token operator">==</span> null<span class="token punctuation">)</span>
+            <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+        Class<span class="token operator">&lt;</span><span class="token operator">?</span><span class="token operator">&gt;</span> eClass <span class="token operator">=</span> e<span class="token punctuation">.</span><span class="token function">getClass</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>eClass <span class="token operator">!=</span> elementType <span class="token operator">&amp;&amp;</span> eClass<span class="token punctuation">.</span><span class="token function">getSuperclass</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">!=</span> elementType<span class="token punctuation">)</span>
+            <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">long</span> oldElements <span class="token operator">=</span> elements<span class="token punctuation">;</span>
+        elements <span class="token operator">&amp;=</span> <span class="token operator">~</span><span class="token punctuation">(</span><span class="token number">1</span>L <span class="token operator">&lt;&lt;</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>Enum<span class="token operator">&lt;</span><span class="token operator">?</span><span class="token operator">&gt;</span><span class="token punctuation">)</span>e<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">ordinal</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> elements <span class="token operator">!=</span> oldElements<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>RegularEnumSet是用一个long类型的变量elements来表示集合里的元素。添加元素关键代码：<strong>elements |= (1L &lt;&lt; ((Enum&lt;?&gt;)e).ordinal());** 删除元素关键代码： **elements &amp;= ~(1L &lt;&lt; ((Enum&lt;?&gt;)e).ordinal());</strong></p> <div class="language-java extra-class"><pre class="language-java"><code><span class="token keyword">class</span> <span class="token class-name">JumboEnumSet</span><span class="token operator">&lt;</span>E <span class="token keyword">extends</span> <span class="token class-name">Enum</span><span class="token generics function"><span class="token punctuation">&lt;</span>E<span class="token punctuation">&gt;</span></span><span class="token operator">&gt;</span> <span class="token keyword">extends</span> <span class="token class-name">EnumSet</span><span class="token generics function"><span class="token punctuation">&lt;</span>E<span class="token punctuation">&gt;</span></span> <span class="token punctuation">{</span>
+ <span class="token comment">/**
+     * Bit vector representation of this set.  The ith bit of the jth
+     * element of this array represents the  presence of universe[64*j +i]
+     * in this set.
+     */</span>
+    <span class="token keyword">private</span> <span class="token keyword">long</span> elements<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>JumboEnumSet只是用long类型的数组elements代替long类型的变量elements来保存数量超过64的枚举量，集合类操作具体的实现细节就不细说了。</p> <h3 id="_2-enummap"><a href="#_2-enummap" aria-hidden="true" class="header-anchor">#</a> 2. EnumMap</h3> <p>如果Map的Key类型是枚举类型的话， 相比于HashMap，更推荐使用EnumMap。EnumMap的key只能是Enum类，底层实现是基于数组的。一般用于保存一个枚举类对应的额外的业务信息。下面简单看下其部分代码：</p> <div class="language-java extra-class"><pre class="language-java"><code><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">EnumMap</span><span class="token operator">&lt;</span>K <span class="token keyword">extends</span> <span class="token class-name">Enum</span><span class="token generics function"><span class="token punctuation">&lt;</span>K<span class="token punctuation">&gt;</span></span><span class="token punctuation">,</span> V<span class="token operator">&gt;</span> <span class="token keyword">extends</span> <span class="token class-name">AbstractMap</span><span class="token generics function"><span class="token punctuation">&lt;</span>K<span class="token punctuation">,</span> V<span class="token punctuation">&gt;</span></span>
+    <span class="token keyword">implements</span> <span class="token class-name">java<span class="token punctuation">.</span>io<span class="token punctuation">.</span>Serializable</span><span class="token punctuation">,</span> Cloneable
+<span class="token punctuation">{</span>
+    <span class="token comment">/**
+     * The &lt;tt&gt;Class&lt;/tt&gt; object for the enum type of all the keys of this map.
+     *
+     * @serial
+     */</span>
+    <span class="token keyword">private</span> <span class="token keyword">final</span> Class<span class="token generics function"><span class="token punctuation">&lt;</span>K<span class="token punctuation">&gt;</span></span> keyType<span class="token punctuation">;</span>
+
+    <span class="token comment">/**
+     * All of the values comprising K.  (Cached for performance.)  
+     * 这个数组对应枚举类的所有枚举量
+     */</span>
+    <span class="token keyword">private</span> <span class="token keyword">transient</span> K<span class="token punctuation">[</span><span class="token punctuation">]</span> keyUniverse<span class="token punctuation">;</span>
+
+    <span class="token comment">/**
+     * Array representation of this map.  The ith element is the value
+     * to which universe[i] is currently mapped, or null if it isn't
+     * mapped to anything, or NULL if it's mapped to null.
+     * 这里就是枚举量对应的value的值的存放的数组
+     */</span>
+    <span class="token keyword">private</span> <span class="token keyword">transient</span> Object<span class="token punctuation">[</span><span class="token punctuation">]</span> vals<span class="token punctuation">;</span>
+
+	<span class="token keyword">public</span> V <span class="token function">put</span><span class="token punctuation">(</span>K key<span class="token punctuation">,</span> V value<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">typeCheck</span><span class="token punctuation">(</span>key<span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token comment">//用枚举量的ordinal值，作为vals数组的index，存放其对应value值</span>
+        <span class="token keyword">int</span> index <span class="token operator">=</span> key<span class="token punctuation">.</span><span class="token function">ordinal</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        Object oldValue <span class="token operator">=</span> vals<span class="token punctuation">[</span>index<span class="token punctuation">]</span><span class="token punctuation">;</span>
+        vals<span class="token punctuation">[</span>index<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">maskNull</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>oldValue <span class="token operator">==</span> null<span class="token punctuation">)</span>
+            size<span class="token operator">++</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> <span class="token function">unmaskNull</span><span class="token punctuation">(</span>oldValue<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h2 id="单例模式的最佳实现：枚举"><a href="#单例模式的最佳实现：枚举" aria-hidden="true" class="header-anchor">#</a> 单例模式的最佳实现：枚举</h2> <p><strong>饿汉式单例</strong>：</p> <div class="language-java extra-class"><pre class="language-java"><code><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">People</span><span class="token punctuation">{</span>
+	<span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">final</span> People INSTANCE <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">People</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token keyword">private</span> <span class="token function">People</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+	<span class="token punctuation">}</span>
+	<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">eat</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p><strong>基于静态工厂方法的饿汉式单例</strong>：</p> <div class="language-java extra-class"><pre class="language-java"><code><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">People</span><span class="token punctuation">{</span>
+	<span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">final</span> People INSTANCE <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">People</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token keyword">private</span> <span class="token function">People</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+	<span class="token punctuation">}</span>
+	<span class="token keyword">public</span> <span class="token keyword">static</span> People <span class="token function">getInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+		<span class="token keyword">return</span> INSTANCE<span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+	<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">eat</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>为了使以上实现的单例类变成可序列化的，仅仅在类的声明中添加“implements Serializable”是不够的。为了维护并保证单例，必须所有声明的实例变量都是transient的，并提供一个readResolve方法。否则，每次反序列化一个序列化的实例的时候，都会创建一个新的实例。</p> <div class="language-java extra-class"><pre class="language-java"><code><span class="token keyword">private</span> Object <span class="token function">readResolve</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+	<span class="token keyword">return</span> INSTANCE<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>对于一个正在被反序列化的对象，如果它的类定义了一个readResolve方法，并且具有正确的声明，那么在反序列化之后，新建对象上的readResolve方法就会被调用。然后，该方法返回的对象引用将被返回，取代新建的对象。</p> <p><strong>基于双检查锁机制的懒汉式单例</strong>（线程安全）：</p> <div class="language-java extra-class"><pre class="language-java"><code><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">People</span><span class="token punctuation">{</span>  
+    <span class="token comment">//使用volatile关键字保其可见性  </span>
+    <span class="token keyword">volatile</span> <span class="token keyword">private</span> <span class="token keyword">static</span> People INSTANCE <span class="token operator">=</span> null<span class="token punctuation">;</span>  
+      
+    <span class="token keyword">private</span> People <span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">}</span>  
+       
+    <span class="token keyword">public</span> <span class="token keyword">static</span> People <span class="token function">getInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>  
+        <span class="token keyword">try</span> <span class="token punctuation">{</span>    
+	            <span class="token keyword">if</span><span class="token punctuation">(</span>INSTANCE <span class="token operator">==</span> null<span class="token punctuation">)</span><span class="token punctuation">{</span>
+	                <span class="token keyword">synchronized</span> <span class="token punctuation">(</span>People<span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>  
+	                    <span class="token keyword">if</span><span class="token punctuation">(</span>INSTANCE <span class="token operator">==</span> null<span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token comment">//二次检查  </span>
+	                        INSTANCE <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">People</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  
+	                    <span class="token punctuation">}</span>   
+		            <span class="token punctuation">}</span>
+	            <span class="token punctuation">}</span>   
+        <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">InterruptedException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>   
+            e<span class="token punctuation">.</span><span class="token function">printStackTrace</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  
+        <span class="token punctuation">}</span>  
+        <span class="token keyword">return</span> INSTANCE <span class="token punctuation">;</span>  
+    <span class="token punctuation">}</span>  
+<span class="token punctuation">}</span>  
+</code></pre></div><p><strong>基于静态内部类的懒汉式单例</strong>（线程安全）：</p> <div class="language-java extra-class"><pre class="language-java"><code><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">People</span><span class="token punctuation">{</span>  
+    <span class="token comment">//内部类  </span>
+    <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">class</span> <span class="token class-name">PeopleHolder</span><span class="token punctuation">{</span>  
+        <span class="token keyword">private</span> <span class="token keyword">static</span> People instance <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">People</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  
+    <span class="token punctuation">}</span>   
+    <span class="token keyword">private</span> <span class="token function">People</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">}</span>  
+       
+    <span class="token keyword">public</span> <span class="token keyword">static</span> People <span class="token function">getInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>   
+        <span class="token keyword">return</span> PeopleHolder<span class="token punctuation">.</span>instance<span class="token punctuation">;</span>  
+    <span class="token punctuation">}</span>  
+<span class="token punctuation">}</span>  
+</code></pre></div><p>这种使用内部类的懒汉式单例模式相比于双检查锁代码更加简洁易懂，借助JVM类加载时的锁机制（确保一个类类只会被同一ClassLoader加载一次），实现线程安全的、延迟加载的单例模式。</p> <p><strong>基于枚举类的单例</strong>：</p> <div class="language-java extra-class"><pre class="language-java"><code><span class="token keyword">public</span> <span class="token keyword">enum</span> People<span class="token punctuation">{</span>
+	INSTANCE<span class="token punctuation">;</span>
+	<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">eat</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>使用枚举实现单例将更加简洁，无偿地提供了序列化机制，绝对防止多次实例化，即使是在面对复杂的序列化或者反射攻击的时候。虽然这种方法还没有被广泛采用，但是<strong>单元素的枚举类型已经成为实现Singleton的最佳方法</strong>。</p> <p><strong>基于静态工厂方法和枚举类单例</strong>：</p> <div class="language-java extra-class"><pre class="language-java"><code><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">People</span><span class="token punctuation">{</span>
+	<span class="token keyword">public</span> <span class="token keyword">enum</span> PeopleEnum<span class="token punctuation">{</span>
+		INSTANCE<span class="token punctuation">;</span>
+		<span class="token keyword">private</span> People instance<span class="token punctuation">;</span>
+		<span class="token keyword">private</span> <span class="token function">PeopleEnum</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            instance <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">People</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  
+        <span class="token punctuation">}</span>
+        <span class="token keyword">public</span> People <span class="token function">getInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>  
+            <span class="token keyword">return</span> instance<span class="token punctuation">;</span>  
+        <span class="token punctuation">}</span>  
+	<span class="token punctuation">}</span>
+	<span class="token keyword">private</span> <span class="token function">People</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+	<span class="token punctuation">}</span>
+	<span class="token keyword">public</span> <span class="token keyword">static</span> People <span class="token function">getInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+		<span class="token keyword">return</span> PeopleEnum<span class="token punctuation">.</span>INSTANCE <span class="token function">getInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+	<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">eat</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>个人觉得这么写虽然没有暴露内部实现，但是还不如直接写成前面的 <strong>基于静态内部类的懒汉式单例</strong>来的简洁，这样子使用枚举实现单例并没有体现出什么优势。</p> <h2 id="职责链模式的枚举实现"><a href="#职责链模式的枚举实现" aria-hidden="true" class="header-anchor">#</a> 职责链模式的枚举实现</h2> <div class="language-java extra-class"><pre class="language-java"><code><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Mail</span><span class="token punctuation">{</span>
+	String type<span class="token punctuation">;</span>
+	<span class="token keyword">public</span> <span class="token function">Mail</span><span class="token punctuation">(</span>String type<span class="token punctuation">)</span><span class="token punctuation">{</span>
+		<span class="token keyword">this</span><span class="token punctuation">.</span>type <span class="token operator">=</span> type<span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">PostOffice</span><span class="token punctuation">{</span>
+    <span class="token keyword">enum</span> MailHandler<span class="token punctuation">{</span>
+        A<span class="token punctuation">{</span>
+            <span class="token annotation punctuation">@Override</span>
+            <span class="token keyword">boolean</span> <span class="token function">handle</span><span class="token punctuation">(</span>Mail m<span class="token punctuation">)</span><span class="token punctuation">{</span>
+                <span class="token keyword">if</span> <span class="token punctuation">(</span>m<span class="token punctuation">.</span>type <span class="token operator">==</span> <span class="token string">&quot;A&quot;</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                    System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">&quot;A handle success&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span><span class="token keyword">else</span> <span class="token punctuation">{</span>
+                    <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        B<span class="token punctuation">{</span>
+            <span class="token annotation punctuation">@Override</span>
+            <span class="token keyword">boolean</span> <span class="token function">handle</span><span class="token punctuation">(</span>Mail m<span class="token punctuation">)</span><span class="token punctuation">{</span>
+                <span class="token keyword">if</span> <span class="token punctuation">(</span>m<span class="token punctuation">.</span>type <span class="token operator">==</span> <span class="token string">&quot;B&quot;</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                    System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">&quot;B handle success&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span><span class="token keyword">else</span> <span class="token punctuation">{</span>
+                    <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        C<span class="token punctuation">{</span>
+            <span class="token annotation punctuation">@Override</span>
+            <span class="token keyword">boolean</span> <span class="token function">handle</span><span class="token punctuation">(</span>Mail m<span class="token punctuation">)</span><span class="token punctuation">{</span>
+                <span class="token keyword">if</span> <span class="token punctuation">(</span>m<span class="token punctuation">.</span>type <span class="token operator">==</span> <span class="token string">&quot;C&quot;</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                    System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">&quot;C handle success&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span><span class="token keyword">else</span> <span class="token punctuation">{</span>
+                    <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span><span class="token punctuation">;</span>
+        <span class="token keyword">abstract</span> <span class="token keyword">boolean</span> <span class="token function">handle</span><span class="token punctuation">(</span>Mail m<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">handler</span><span class="token punctuation">(</span>Mail m<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">for</span><span class="token punctuation">(</span>MailHandler handler <span class="token operator">:</span> MailHandler<span class="token punctuation">.</span><span class="token function">values</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>handler<span class="token punctuation">.</span><span class="token function">handle</span><span class="token punctuation">(</span>m<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token keyword">return</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+
+        <span class="token punctuation">}</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">&quot;handle fail&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        Mail mailA <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Mail</span><span class="token punctuation">(</span><span class="token string">&quot;A&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        Mail mailB <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Mail</span><span class="token punctuation">(</span><span class="token string">&quot;B&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        Mail mailC <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Mail</span><span class="token punctuation">(</span><span class="token string">&quot;C&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        Mail mailD <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Mail</span><span class="token punctuation">(</span><span class="token string">&quot;D&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token function">handler</span><span class="token punctuation">(</span>mailA<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">&quot;-----------&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">handler</span><span class="token punctuation">(</span>mailB<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">&quot;-----------&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">handler</span><span class="token punctuation">(</span>mailC<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">&quot;-----------&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">handler</span><span class="token punctuation">(</span>mailD<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>上面的例子简化了《thinking in java》的例子，其运行的输出如下：</p> <div class="language- extra-class"><pre class="language-text"><code>A handle success
+-----------
+B handle success
+-----------
+C handle success
+-----------
+handle fail
+</code></pre></div><p>通常实现职责链模式是通过继承抽象类或者实现接口，链中每新增一个新的元素，就新建一个类，然后通过修改配置文件，或者修改代码将该类加入职责链中。Enum给职责链的实现提供了一个新的思路，链中新增一个元素只需要新增一个枚举量，但是也有一定的不足，使用Enum实现的职责链，链中元素不能被其他链复用自由组合，是否使用Enum去实现职责链还是要根据实际情况去取舍。</p></div> <div class="page-edit"><!----> <!----></div> <!----> </div> <!----></div></div>
+    <script src="/assets/js/4.7f64594c.js" defer></script><script src="/assets/js/app.460279ee.js" defer></script>
+  </body>
+</html>
