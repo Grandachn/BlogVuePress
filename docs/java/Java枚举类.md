@@ -31,10 +31,10 @@ public enum  Gender {
     }
 
     public static Gender fromCode(Integer code){
-        return fromCodeMap.get(code);
+        return FROM_CODE_MAP.get(code);
     }
     public static String getNameFromCode(Integer code){
-        return fromCodeMap.get(code).name;
+        return FROM_CODE_MAP.containsKey(code) ? FROM_CODE_MAP.get(code).name : null;
     }
 
 }
